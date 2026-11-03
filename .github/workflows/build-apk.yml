@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
+      - run: mkdir -p www && cp ironlog.html www/index.html
       - uses: actions/setup-node@v4
         with:
           node-version: 22
