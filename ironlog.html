@@ -65,12 +65,26 @@ svg.chart{width:100%;height:auto;display:block;overflow:visible}
 .chip button{border:0;background:rgba(255,255,255,.08);color:var(--mut);width:20px;height:20px;border-radius:50%;font-size:11px;cursor:pointer;padding:0}
 .empty{text-align:center;color:var(--mut);font-size:14px;padding:26px 10px;line-height:1.5}
 nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(440px,calc(100% - 28px));margin-bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:5;display:flex;padding:6px;border-radius:26px;background:rgba(9,18,38,.78);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);box-shadow:0 14px 40px rgba(0,0,0,.6)}
-nav .ind{position:absolute;top:6px;bottom:6px;left:6px;width:calc((100% - 12px)/3);border-radius:20px;background:linear-gradient(120deg,#1747ff,#2f9bff);box-shadow:0 6px 20px rgba(47,123,255,.5);transition:transform .45s cubic-bezier(.3,1.3,.5,1)}
+nav .ind{position:absolute;top:6px;bottom:6px;left:6px;width:calc((100% - 12px)/4);border-radius:20px;background:linear-gradient(120deg,#1747ff,#2f9bff);box-shadow:0 6px 20px rgba(47,123,255,.5);transition:transform .45s cubic-bezier(.3,1.3,.5,1)}
 nav button{position:relative;flex:1;border:0;background:none;color:var(--mut);padding:11px 0 9px;font:600 11px 'Sora',sans-serif;cursor:pointer;transition:color .3s;display:flex;flex-direction:column;align-items:center;gap:3px}
 nav button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s cubic-bezier(.3,1.5,.5,1)}
 nav button.on{color:#fff}nav button.on svg{transform:translateY(-2px) scale(1.15)}
 .toast{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));left:50%;transform:translate(-50%,-120px);z-index:9;padding:12px 20px;border-radius:99px;background:linear-gradient(120deg,#1747ff,#38d5ff);font-weight:600;font-size:14px;transition:transform .5s cubic-bezier(.3,1.4,.5,1);box-shadow:0 10px 30px rgba(47,123,255,.5)}
 .toast.show{transform:translate(-50%,0)}
+.ring{position:relative;width:170px;height:170px;margin:0 auto}.ring svg{width:100%;height:100%;transform:rotate(-90deg)}.ring .bg{fill:none;stroke:#10203d;stroke-width:12}.ring .fg{fill:none;stroke:url(#rg);stroke-width:12;stroke-linecap:round;stroke-dasharray:408;stroke-dashoffset:408;transition:stroke-dashoffset 1.5s cubic-bezier(.3,.9,.3,1)}.ring .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.ring .mid b{font-size:36px;font-weight:800}.ring .mid span{font-size:12px;color:var(--mut)}
+.macros{display:flex;gap:8px;margin-top:16px}.macros div{flex:1;text-align:center;padding:10px 4px;border-radius:16px;background:#030a18;border:1px solid var(--line);font-size:11px;color:var(--mut)}.macros b{display:block;font-size:17px;color:var(--tx)}
+.scanbox{position:relative;border-radius:20px;overflow:hidden;margin-bottom:12px}.scanbox img{width:100%;max-height:220px;object-fit:cover;display:block}.scanbox.go::after{content:"";position:absolute;left:0;right:0;height:60px;top:-60px;background:linear-gradient(180deg,transparent,rgba(56,213,255,.55));border-bottom:2px solid var(--cyan);animation:sweep 1.6s ease-in-out infinite}@keyframes sweep{to{top:100%}}
+.orb{position:relative;flex:none;width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#b5f0ff,#2f7bff 55%,#0a1a6e);animation:float 3.2s ease-in-out infinite,pulse 2.6s infinite}.orb::before,.orb::after{content:"";position:absolute;top:40%;width:7px;height:11px;border-radius:50%;background:#020a24;animation:blink 4s infinite}.orb::before{left:30%}.orb::after{right:30%}.orb.sm{width:40px;height:40px}.orb.sm::before,.orb.sm::after{width:5px;height:8px}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}@keyframes float{50%{transform:translateY(-6px)}}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(56,213,255,.5),0 10px 30px rgba(47,123,255,.6)}70%,100%{box-shadow:0 0 0 18px rgba(56,213,255,0),0 10px 30px rgba(47,123,255,.6)}}
+.fab{position:fixed;right:max(16px,calc(50% - 224px));bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:6;border:0;background:none;padding:0;cursor:pointer;transition:transform .3s cubic-bezier(.3,1.5,.5,1)}.fab:active{transform:scale(.88)}
+.shade{position:fixed;inset:0;z-index:7;background:rgba(0,3,12,.6);opacity:0;pointer-events:none;transition:opacity .4s}.shade.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:50%;bottom:0;z-index:8;width:min(480px,100%);height:82%;transform:translate(-50%,105%);transition:transform .55s cubic-bezier(.2,1,.3,1);display:flex;flex-direction:column;background:linear-gradient(180deg,#0b1730,#04091a);border:1px solid var(--line);border-radius:28px 28px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}.sheet.on{transform:translate(-50%,0)}
+.sh{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}.sh b{font-size:16px}.sh span{display:block;font-size:11px;color:var(--cyan)}.sp{flex:1}.ib{border:0;background:rgba(255,255,255,.06);color:var(--tx);width:34px;height:34px;border-radius:12px;cursor:pointer;font-size:16px}
+.msgs{flex:1;overflow-y:auto;padding:16px 18px;display:flex;flex-direction:column;gap:10px}.bub{max-width:84%;padding:11px 14px;border-radius:18px;font-size:14px;line-height:1.45;white-space:pre-wrap;animation:pop2 .4s cubic-bezier(.3,1.4,.5,1) both}.bub.v{align-self:flex-start;background:var(--card2);border:1px solid var(--line);border-bottom-left-radius:6px}.bub.u{align-self:flex-end;background:linear-gradient(120deg,#1747ff,#2f9bff);border-bottom-right-radius:6px}
+@keyframes pop2{from{opacity:0;transform:translateY(10px) scale(.92)}to{opacity:1;transform:none}}.dots i{display:inline-block;width:7px;height:7px;margin:0 2px;border-radius:50%;background:var(--cyan);animation:bounce 1s infinite}.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}@keyframes bounce{50%{transform:translateY(-6px);opacity:.5}}
+.qr{display:flex;gap:8px;flex-wrap:wrap;padding:0 18px 10px}.qr button{border:1px solid var(--blue);background:rgba(47,123,255,.12);color:var(--tx);padding:9px 14px;border-radius:99px;font:600 13px 'Sora',sans-serif;cursor:pointer;animation:pop2 .4s both;transition:transform .15s}.qr button:active{transform:scale(.93)}
+.inp{display:flex;gap:8px;padding:8px 18px 14px}.inp input{flex:1;min-width:0;background:#030a18;border:1px solid var(--line);border-radius:16px;padding:12px 14px;color:var(--tx);font:500 14px 'Sora',sans-serif;outline:0}.inp input:focus{border-color:var(--blue)}.inp button{width:46px;border:0;border-radius:16px;background:linear-gradient(120deg,#1747ff,#38d5ff);color:#fff;font-size:18px;cursor:pointer}
+.keybox{display:none;margin:12px 18px 0;padding:14px;border-radius:18px;background:var(--card2);border:1px solid var(--line);font-size:12px;color:var(--mut);line-height:1.5}.keybox.on{display:block}.keybox input{width:100%;margin:8px 0;background:#030a18;border:1px solid var(--line);border-radius:12px;padding:10px;color:var(--tx);font:500 13px 'Sora',sans-serif;outline:0}.keybox .btn{margin-top:4px;padding:11px;font-size:14px}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
 </style>
 </head>
@@ -81,12 +95,24 @@ nav button.on{color:#fff}nav button.on svg{transform:translateY(-2px) scale(1.15
   <section class="screen on" id="s0"></section>
   <section class="screen" id="s1"></section>
   <section class="screen" id="s2"></section>
+  <section class="screen" id="s3"></section>
+</div>
+<button class="fab" id="fab" aria-label="Volt"><div class="orb"></div></button>
+<div class="shade" id="shade"></div>
+<div class="sheet" id="sheet">
+  <div class="sh"><div class="orb sm"></div><div><b>Volt</b><span>tu coach de bolsillo</span></div><div class="sp"></div><button class="ib" id="vkey">⚙</button><button class="ib" id="vx">✕</button></div>
+  <div class="keybox" id="kbox">Para que Volt responda y escanee comidas necesita una clave de IA. Gratis con Gemini en <b>aistudio.google.com/apikey</b>. También sirve una clave de Anthropic (empieza con sk-ant). Se guarda solo en tu celular.<input id="kin" type="password" placeholder="Pega tu clave" autocomplete="off"><button class="btn" id="ksave">Guardar clave</button></div>
+  <div class="msgs" id="msgs"></div><div class="qr" id="qr"></div>
+  <div class="inp"><input id="vin" placeholder="Escríbele a Volt…" autocomplete="off"><button id="vsend">➤</button></div>
+</div>
+<div style="display:none">
 </div>
 <nav>
   <div class="ind" id="ind"></div>
   <button class="on" data-t="0"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>Peso</button>
   <button data-t="1"><svg viewBox="0 0 24 24"><path d="M6 6v12M18 6v12M3 9v6M21 9v6M6 12h12"/></svg>Entrenar</button>
-  <button data-t="2"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="17" rx="3"/><path d="M8 2v4M16 2v4M8 11h8M8 15h5"/></svg>Historial</button>
+  <button data-t="2"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-2 2-2.5 5-2.5 8H17v10"/></svg>Comida</button>
+  <button data-t="3"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="17" rx="3"/><path d="M8 2v4M16 2v4M8 11h8M8 15h5"/></svg>Historial</button>
 </nav>
 <script>
 const KEY='ironlog_v1';
@@ -178,14 +204,122 @@ function renderTrain(){
 
 function renderHist(){
   const days=[...new Set(S.sets.map(x=>x.d))].sort().reverse();
-  $('s2').innerHTML=`<h1>Historial de entrenamientos</h1>`+(days.length?days.map(d=>{
+  $('s3').innerHTML=`<h1>Historial de entrenamientos</h1>`+(days.length?days.map(d=>{
     const groups={};S.sets.filter(x=>x.d===d).forEach(x=>(groups[x.ex]=groups[x.ex]||[]).push(x));
     return `<div class="day">${fmtL(d)}</div>`+Object.entries(groups).map(([n,l],i)=>`<div class="ex" style="animation-delay:${i*.07}s"><b>${esc(n)}</b><div class="chips">${l.map(x=>`<span class="chip">${x.w} kg × ${x.r}<button data-dh="${x.id}">✕</button></span>`).join('')}</div></div>`).join('')
   }).join(''):'<div class="empty" style="margin-top:60px">Todavía no hay entrenamientos.<br>Registra tu primera serie en la pestaña Entrenar.</div>');
   document.querySelectorAll('[data-dh]').forEach(b=>b.onclick=()=>{S.sets=S.sets.filter(x=>x.id!==b.dataset.dh);save();renderHist()});
 }
-function render(n){[renderWeight,renderTrain,renderHist][n]()}
-renderWeight();renderTrain();renderHist();
+function render(n){[renderWeight,renderTrain,renderFood,renderHist][n]()}
+S.meals=S.meals||[];S.chat=S.chat||[];
+let pend=null,prev=null,busy=false,busy2=false,qi=-1,ans={};
+const mealsToday=()=>S.meals.filter(m=>m.d===today());
+const sumK=(a,f)=>a.reduce((s,m)=>s+(+m[f]||0),0);
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+function shrink(f){return new Promise((ok,no)=>{const im=new Image(),u=URL.createObjectURL(f);im.onload=()=>{const s=Math.min(1,900/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);ok(c.toDataURL('image/jpeg',.8).split(',')[1])};im.onerror=no;im.src=u})}
+async function post(u,o){for(let i=0;i<1;i++){const c=new AbortController(),t=setTimeout(()=>c.abort(),40000);try{const r=await fetch(u,{...o,signal:c.signal});clearTimeout(t);return r}catch(e){clearTimeout(t);if(e.name==='AbortError')throw new Error('Tardó demasiado en responder');throw e}}throw new Error('Google está saturado, probá en un rato')}
+async function ai(sys,msgs,img){
+  const k=S.key;if(!k)throw new Error('key');
+  const last=msgs.length-1;
+  if(k.startsWith('sk-ant')){
+    const m=msgs.map((x,i)=>({role:x.role,content:(img&&i===last)?[{type:'image',source:{type:'base64',media_type:'image/jpeg',data:img}},{type:'text',text:x.text}]:x.text}));
+    const r=await post('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':k,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-haiku-5-5',max_tokens:700,system:sys,messages:m})});
+    const j=await r.json();if(!r.ok)throw new Error(j.error&&j.error.message||'error');return j.content.map(c=>c.text||'').join('');
+  }
+  const m=msgs.map((x,i)=>({role:x.role==='assistant'?'model':'user',parts:[{text:x.text}].concat(img&&i===last?[{inline_data:{mime_type:'image/jpeg',data:img}}]:[])}));
+  let j,r;
+  for(const md of ['gemini-3.5-flash-lite','gemini-3.8-flash']){
+    r=await post('https://generativelanguage.googleapis.com/v1beta/models/'+md+':generateContent?key='+encodeURIComponent(k),{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({system_instruction:{parts:[{text:sys}]},contents:m})});
+    j=await r.json();if(r.status!==404)break;
+  }
+  if(r.status===429)throw new Error('Límite gratis de Gemini alcanzado, esperá medio minuto. Detalle: '+String(j.error&&j.error.message||'').slice(0,200));
+  if(!r.ok)throw new Error(j.error&&j.error.message||'error');
+  const ps=(j.candidates&&j.candidates[0]&&j.candidates[0].content&&j.candidates[0].content.parts)||[];
+  const tx=ps.filter(p=>!p.thought).map(p=>p.text||'').join('');
+  if(!tx)throw new Error('Respuesta vacía, probá de nuevo');return tx;
+}
+const scanCard=()=>`<div class="card"><div class="scanbox ${busy?'go':''}"><img src="${prev}" alt=""></div>${busy?'<div class="empty" style="padding:6px">Volt está analizando tu plato…</div>':pend?`<div class="field"><label>Comida</label><input id="pn" value="${esc(pend.n)}"></div><div class="row" style="margin-top:10px"><div class="field"><label>kcal</label><input id="pk" type="number" inputmode="numeric" value="${pend.k}"></div><div class="field"><label>Porción</label><input value="${esc(pend.por)}" disabled></div></div><div class="macros"><div><b>${pend.p} g</b>Prot.</div><div><b>${pend.c} g</b>Carbos</div><div><b>${pend.f} g</b>Grasa</div></div><button class="btn" id="pok">Agregar a hoy</button><button class="btn" id="pno" style="background:#10203d;box-shadow:none">Descartar</button>`:''}</div>`;
+function renderFood(){
+  const t=mealsToday(),k=sumK(t,'k'),g=S.goal||0,pc=g?Math.min(1,k/g):0;
+  $('s2').innerHTML=`<h1>Calorías de hoy</h1>
+  <div class="card" style="margin-top:6px"><div class="ring"><svg viewBox="0 0 150 150"><defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#2f7bff"/><stop offset="1" stop-color="#38d5ff"/></linearGradient></defs><circle class="bg" cx="75" cy="75" r="65"/><circle class="fg" id="fg" cx="75" cy="75" r="65"/></svg><div class="mid"><b id="kc">0</b><span>${g?'de '+g+' kcal':'sin meta todavía'}</span></div></div>
+  <div class="macros"><div><b>${sumK(t,'p')} g</b>Proteína</div><div><b>${sumK(t,'c')} g</b>Carbos</div><div><b>${sumK(t,'f')} g</b>Grasa</div></div>
+  ${g?`<span class="pill ${k>g?'up':''}" style="display:block;text-align:center;margin-top:14px">${k>g?'Te pasaste '+(k-g)+' kcal':'Te quedan '+(g-k)+' kcal'}</span>`:'<button class="btn" id="setgoal">Calcular mi meta con Volt</button>'}</div>
+  <input type="file" id="pic" accept="image/*" hidden>
+  <button class="btn" id="scan">Escanear comida con la cámara</button>
+  ${prev?scanCard():''}
+  <div class="card"><h2>Agregar manualmente</h2><div class="row"><div class="field" style="flex:2"><label>Comida</label><input id="mn" placeholder="Ej: Milanesa"></div><div class="field"><label>kcal</label><input id="mk" type="number" inputmode="numeric"></div></div><button class="btn" id="madd">Agregar</button></div>
+  <div class="card"><h2>Comidas de hoy</h2>${t.length?[...t].reverse().map((m,i)=>`<div class="item" style="animation-delay:${i*.05}s"><div><b>${esc(m.n)}</b><br><span>${m.k} kcal${m.p||m.c||m.f?' · P'+m.p+' C'+m.c+' G'+m.f:''}</span></div><button class="x" data-dm="${m.id}">✕</button></div>`).join(''):'<div class="empty">Todavía no registraste comidas hoy.</div>'}</div>`;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{const f=$('fg');if(f)f.style.strokeDashoffset=408*(1-pc)}));
+  count($('kc'),k,0);
+  $('scan').onclick=()=>$('pic').click();
+  if($('setgoal'))$('setgoal').onclick=()=>openVolt('quiz');
+  $('madd').onclick=()=>{const n=$('mn').value.trim(),kk=parseInt($('mk').value);if(!n||!(kk>0)){toast('Escribe comida y kcal');return}S.meals.push({id:uid(),d:today(),n,k:kk,p:0,c:0,f:0});save();toast('Comida agregada');renderFood()};
+  document.querySelectorAll('[data-dm]').forEach(b=>b.onclick=()=>{const it=b.closest('.item');it.classList.add('out');setTimeout(()=>{S.meals=S.meals.filter(x=>x.id!==b.dataset.dm);save();renderFood()},280)});
+  if($('pok'))$('pok').onclick=()=>{S.meals.push({id:uid(),d:today(),n:$('pn').value.trim()||pend.n,k:parseInt($('pk').value)||0,p:pend.p,c:pend.c,f:pend.f});pend=prev=null;save();toast('Comida agregada');renderFood()};
+  if($('pno'))$('pno').onclick=()=>{pend=prev=null;renderFood()};
+  $('pic').onchange=async e=>{
+    const f=e.target.files[0];if(!f)return;
+    prev=URL.createObjectURL(f);pend=null;busy=true;renderFood();
+    try{
+      const b=await shrink(f);prev='data:image/jpeg;base64,'+b;
+      const r=await ai('Eres un nutricionista. Analiza la comida de la foto y estima para la porción visible. Responde SOLO un JSON válido, sin texto extra: {"nombre":"","porcion":"","calorias":0,"proteina":0,"carbos":0,"grasa":0}. Números enteros y nombre en español.',[{role:'user',text:'¿Cuántas calorías tiene esta comida?'}],b);
+      const j=JSON.parse(r.match(/\{[\s\S]*\}/)[0]);
+      pend={n:j.nombre||'Comida',k:Math.round(j.calorias)||0,p:Math.round(j.proteina)||0,c:Math.round(j.carbos)||0,f:Math.round(j.grasa)||0,por:j.porcion||''};
+    }catch(err){prev=null;if(err.message==='key'){toast('Conecta a Volt con tu clave');openVolt(true)}else toast('No pude analizar la foto')}
+    busy=false;renderFood();
+  };
+}
+const Q=[
+{k:'sex',q:'¡Hola! Soy Volt ⚡ Te hago unas preguntas rápidas y calculo tus calorías ideales. ¿Sos hombre o mujer?',o:['Hombre','Mujer']},
+{k:'age',q:'¿Qué edad tenés?',r:[10,100]},
+{k:'h',q:'¿Cuánto medís (en cm)?',r:[120,230]},
+{k:'w',q:'¿Cuánto pesás hoy (en kg)?',r:[30,300]},
+{k:'act',q:'¿Qué tan activo sos en la semana?',o:['Poco: casi no entreno','Ligero: 1 a 3 días','Moderado: 3 a 5 días','Intenso: 6 a 7 días']},
+{k:'goal',q:'¿Cuál es tu objetivo?',o:['Bajar de peso','Mantener','Ganar músculo']}];
+function ctx(){const t=mealsToday(),w=[...S.weights].sort((a,b)=>a.d<b.d?-1:1).pop(),ss=S.sets.slice(-6).map(x=>x.ex+' '+x.w+'kg x'+x.r).join('; ');return 'Meta diaria: '+(S.goal?S.goal+' kcal':'sin definir')+'. Hoy comió: '+sumK(t,'k')+' kcal. Último peso: '+(w?w.v+' kg':'sin datos')+'. Últimas series: '+(ss||'ninguna')+'.'}
+function bub(t,w){const d=document.createElement('div'),m=$('msgs');d.className='bub '+w;d.textContent=t;m.appendChild(d);m.scrollTop=m.scrollHeight;return d}
+function say(t){bub(t,'v');S.chat.push({r:'v',t});S.chat=S.chat.slice(-30);save()}
+function chips(a){const q=$('qr');q.innerHTML='';a.forEach((x,i)=>{const b=document.createElement('button');b.textContent=x;b.style.animationDelay=i*.07+'s';b.onclick=()=>send(x);q.appendChild(b)})}
+function startQuiz(){qi=0;ans={};say(Q[0].q);chips(Q[0].o)}
+function quiz(t){
+  const q=Q[qi];let v;
+  if(q.o){v=q.o.indexOf(t);if(v<0){say('Elegí una de las opciones 👇');chips(q.o);return}}
+  else{v=parseFloat(t.replace(',','.'));if(!(v>=q.r[0]&&v<=q.r[1])){say('Ese número no me cierra, probá de nuevo.');return}}
+  ans[q.k]=v;qi++;
+  if(qi<Q.length){const n=Q[qi];setTimeout(()=>{say(n.q);if(n.o)chips(n.o)},450);return}
+  const a=ans,bmr=10*a.w+6.25*a.h-5*a.age+(a.sex===0?5:-161),td=bmr*[1.2,1.375,1.55,1.725][a.act],kc=Math.round((td+[-450,0,300][a.goal])/10)*10,pr=Math.round(a.w*1.8);
+  qi=-1;S.goal=kc;S.profile=a;save();
+  setTimeout(()=>{say('Listo ⚡ Tu meta es de '+kc+' kcal por día (tu gasto diario ronda las '+Math.round(td/10)*10+'). Apuntá a unos '+pr+' g de proteína diarios. Ya la guardé en tu pestaña Comida. Si algo cambia, pedime que la recalcule.');renderFood();chips(['¿Qué como hoy?','Calcular mis calorías'])},500);
+}
+async function ask(){
+  busy2=true;const d=bub('','v');d.innerHTML='<span class="dots"><i></i><i></i><i></i></span>';
+  try{
+    const h=S.chat.slice(-8).map(x=>({role:x.r==='u'?'user':'assistant',text:x.t}));while(h.length&&h[0].role!=='user')h.shift();
+    const r=(await ai('Eres Volt, un coach de fitness y nutrición enérgico y amable dentro de la app IronLog. Hablas en español rioplatense (vos), con respuestas breves (máximo 4 oraciones), sin markdown. Si el tema es médico, recomienda consultar a un profesional. Datos del usuario: '+ctx(),h)).trim();
+    d.textContent=r;S.chat.push({r:'v',t:r});save();
+  }catch(e){if(e.message==='key'){d.textContent='Para charlar necesito tu clave de IA. Tocá el engranaje ⚙ de arriba y pegala ahí.';$('kbox').classList.add('on')}else d.textContent='Uy, no pude conectarme: '+e.message}
+  busy2=false;$('msgs').scrollTop=$('msgs').scrollHeight;
+}
+function send(t){
+  t=t.trim();if(!t||busy2)return;$('vin').value='';$('qr').innerHTML='';
+  bub(t,'u');S.chat.push({r:'u',t});
+  if(qi>=0){quiz(t);return}
+  if(/calcul.*calor|mi meta/i.test(t)){startQuiz();return}
+  ask();
+}
+function openVolt(mode){
+  $('sheet').classList.add('on');$('shade').classList.add('on');
+  if(!$('msgs').children.length){if(S.chat.length)S.chat.forEach(x=>bub(x.t,x.r));else say('¡Hola! Soy Volt ⚡ tu coach de bolsillo. Calculo cuántas calorías necesitás, resuelvo dudas de entrenamiento y te ayudo con tu comida. ¿Por dónde empezamos?')}
+  if(mode==='quiz'){if(qi<0)startQuiz()}else if(mode===true)$('kbox').classList.add('on');else chips(['Calcular mis calorías','¿Qué como hoy?','Rutina de pecho','¿Cuánta proteína necesito?']);
+}
+const closeVolt=()=>{$('sheet').classList.remove('on');$('shade').classList.remove('on')};
+$('fab').onclick=()=>openVolt();$('shade').onclick=closeVolt;$('vx').onclick=closeVolt;
+$('vkey').onclick=()=>{$('kin').value=S.key||'';$('kbox').classList.toggle('on')};
+$('ksave').onclick=()=>{S.key=$('kin').value.trim();save();$('kbox').classList.remove('on');toast(S.key?'Clave guardada':'Clave borrada')};
+$('vsend').onclick=()=>send($('vin').value);
+$('vin').onkeydown=e=>{if(e.key==='Enter')send($('vin').value)};
+renderWeight();renderTrain();renderFood();renderHist();
 </script>
 </body>
 </html>
